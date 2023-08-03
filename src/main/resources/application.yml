@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      uri: mongodb://localhost:27017
+      port: 27017
+      database: imdb
+  jpa:
+    show-sql: true
+
+server:
+  servlet:
+    context-path: "/api"
