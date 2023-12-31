@@ -14,17 +14,17 @@ public class FilmService {
 
     private final FilmRepo filmRepo;
 
-    public FilmService(FilmRepo filmRepo){
+    public FilmService(FilmRepo filmRepo) {
         this.filmRepo = filmRepo;
     }
 
-    public List<FilmResponseDto> findAllFilm(){
+    public List<FilmResponseDto> findAllFilm() {
         List<Film> films = filmRepo.findAll();
 
     }
 
 
-    private List<FilmResponseDto> prepareFilmList(List<Film> films){
+    private List<FilmResponseDto> prepareFilmList(List<Film> films) {
         List<FilmResponseDto> filmResponseDtos = new ArrayList<>();
         films.stream().map(film -> FilmResponseDto.builder()
                 .)

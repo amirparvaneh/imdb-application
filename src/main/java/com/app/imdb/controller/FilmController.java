@@ -1,28 +1,21 @@
 package com.app.imdb.controller;
 
-import com.app.imdb.dto.FilmResponseDto;
-import com.app.imdb.model.Film;
 import com.app.imdb.service.FilmService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
-@RequestMapping(value = "/film")
+@RequestMapping(value = "/films")
+@RequiredArgsConstructor
 public class FilmController {
 
+    private static final Logger log = LoggerFactory.getLogger(FilmController.class);
     private final FilmService filmService;
 
-    public FilmController(FilmService filmService){
-        this.filmService = filmService;
-    }
 
-    @GetMapping(value = "/all")
-    public ResponseEntity<List<FilmResponseDto>> getFilmList(){
-        List<Film> filmResponseDtos = filmService.findAllFilm();
-        prepare
-    }
+
 }
