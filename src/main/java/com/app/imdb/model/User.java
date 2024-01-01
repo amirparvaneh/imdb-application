@@ -1,7 +1,11 @@
 package com.app.imdb.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "user")
-public class User {
+import jakarta.persistence.Entity;
+
+@Entity
+public class User extends BaseEntity{
+
+    private String firstName;
+    private String lastName;
 }

@@ -1,23 +1,22 @@
 package com.app.imdb.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Document(collection = "film")
+
+@Entity
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Film {
-    @Id
-    private String id;
+public class Film extends BaseEntity{
     private String filmName;
     @Min(value = 1, message = "minimum range is 1")
     @Max(value = 5, message = "maximum range is 5")

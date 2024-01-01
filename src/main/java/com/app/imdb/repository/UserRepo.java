@@ -1,7 +1,9 @@
 package com.app.imdb.repository;
 
 import com.app.imdb.model.User;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepo extends MongoRepository<User, String> {
+@Repository
+public interface UserRepo extends JpaRepository<User, Long> {
 }
