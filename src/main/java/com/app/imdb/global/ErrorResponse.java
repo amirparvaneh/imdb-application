@@ -17,27 +17,31 @@ import java.util.Objects;
 @NoArgsConstructor
 public class ErrorResponse {
     private String message;
+    private String errorCode;
     private HttpStatus statusCode;
-    private ErrorConstants errorConstants;
     private DomainCategory domainCategory;
     private final Map<String, Object> errorDetail = new HashMap<>();
     private Object[] params;
 
     public ErrorResponse(String message,
+                         String errorCode,
                          HttpStatus statusCode,
-                         ErrorConstants errorConstants,
                          DomainCategory domainCategory,
                          Object... params) {
         this.message = message;
+        this.errorCode = errorCode;
         this.statusCode = statusCode;
-        this.errorConstants = errorConstants;
         this.domainCategory = domainCategory;
         if (Objects.nonNull(params)) {
             setErrorDetail(params);
         }
     }
-    public ErrorResponse(String message){
+
+    public ErrorResponse(String message, String errorCode, HttpStatus statusCode, DomainCategory domainCategory) {
         this.message = message;
+        this.errorCode = errorCode;
+        this.statusCode = statusCode;
+        this.domainCategory = domainCategory;
     }
 
     private void setErrorDetail(Object... params) {
