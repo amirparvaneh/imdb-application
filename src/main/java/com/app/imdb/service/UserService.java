@@ -1,20 +1,12 @@
 package com.app.imdb.service;
 
+import com.app.imdb.dto.UserRequestDto;
 import com.app.imdb.model.User;
-import com.app.imdb.repository.UserRepo;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-@RequiredArgsConstructor
-public class UserService {
+public interface UserService {
 
-    private final UserRepo userRepo;
-
-
-    public List<User> getAllUser(){
-        return userRepo.findAll();
-    }
+    User addNewUser(UserRequestDto userRequestDto);
+    List<User> getAllUser();
 }
