@@ -1,6 +1,7 @@
 package com.app.imdb.service.impl;
 
 
+import com.app.imdb.dto.FilmRequestDto;
 import com.app.imdb.dto.FilmResponseDto;
 import com.app.imdb.model.Film;
 import com.app.imdb.repository.FilmRepo;
@@ -20,4 +21,8 @@ public class FilmServiceImpl implements FilmService {
     private static final Logger log = LoggerFactory.getLogger(FilmServiceImpl.class);
     private final FilmRepo filmRepo;
 
+    @Override
+    public Film addNewFilm(FilmRequestDto filmRequestDto) {
+        return null;
+    }
 }

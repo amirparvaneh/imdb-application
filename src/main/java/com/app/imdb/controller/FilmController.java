@@ -1,5 +1,6 @@
 package com.app.imdb.controller;
 
+import com.app.imdb.ApiVersion;
 import com.app.imdb.service.impl.FilmServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping(value = "/films")
+@RequestMapping(value = ApiVersion.VERSION + "/films")
 @RequiredArgsConstructor
 public class FilmController {
 

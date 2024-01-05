@@ -24,7 +24,11 @@ public class UserController {
 
 
     @PostMapping
-    public ResponseEntity<BaseResponse<User>> addNewUser(@RequestBody UserRequestDto userRequestDto){
-        userService.addNewUser(userRequestDto);
+    public ResponseEntity<BaseResponse<User>> addNewUser(@RequestBody UserRequestDto userRequestDto) {
+        User user = userService.addNewUser(userRequestDto);
+        return ResponseEntity.ok(BaseResponse.<User>builder()
+                .message("added")
+                .result(user)
+                .build());
     }
 }
