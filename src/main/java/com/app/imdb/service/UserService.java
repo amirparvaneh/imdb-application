@@ -9,4 +9,5 @@ public interface UserService {
 
     User addNewUser(UserRequestDto userRequestDto);
     List<User> getAllUser();
+    void deleteUser(Long userId);
 }

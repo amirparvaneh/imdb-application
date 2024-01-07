@@ -11,5 +11,6 @@ public class Rate extends BaseEntity{
     @JoinColumn(name = "user_id")
     private User user;
     @ManyToOne
+    @JoinColumn(name = "film_id")
     private Film film;
 }

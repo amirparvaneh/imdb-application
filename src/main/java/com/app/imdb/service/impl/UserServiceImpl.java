@@ -1,6 +1,7 @@
 package com.app.imdb.service.impl;
 
 import com.app.imdb.dto.UserRequestDto;
+import com.app.imdb.exception.UserDomainException;
 import com.app.imdb.mapper.UserMapper;
 import com.app.imdb.model.User;
 import com.app.imdb.repository.UserRepo;
@@ -26,6 +27,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUser() {
         return userRepo.findAll();
+    }
+
+    @Override
+    public void deleteUser(Long userId) {
+        User user = userRepo.findById(userId).orElseThrow(
+                ()-> new UserDomainException(userId)
+        );
+        userRepo.delete(user);
     }
 
 
