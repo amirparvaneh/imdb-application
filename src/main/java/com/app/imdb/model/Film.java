@@ -1,9 +1,6 @@
 package com.app.imdb.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,4 +22,6 @@ public class Film extends BaseEntity{
     private Integer averageScore;
     @OneToMany(mappedBy = "film")
     private Set<Rate> rate;
+    @Enumerated(EnumType.STRING)
+    private Genre genre;
 }
