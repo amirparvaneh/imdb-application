@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = ApiVersion.VERSION + "/users")
 @RequiredArgsConstructor
@@ -37,4 +39,16 @@ public class UserController {
                 .result(null)
                 .build());
     }
+
+    @GetMapping(value = "/all")
+    public ResponseEntity<BaseResponse> getAllUser(){
+        List<User> allUser = userService.getAllUser();
+        return ResponseEntity.ok(BaseResponse.builder()
+                .message("size of user" + allUser.size())
+                .result(allUser).build());
+    }
+
+    @GetMapping(value = "/search")
+    public ResponseEntity<BaseResponse> searchFilm(@RequestParam String name,@)
+
 }

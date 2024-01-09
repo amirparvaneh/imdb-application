@@ -1,9 +1,16 @@
 package com.app.imdb.model;
 
-public enum Genre {
-    HORROR,
-    DRAMA,
-    COMEDY,
-    ADVENTURE,
-    THRILLER
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class Genre extends BaseEntity{
+    private String name;
 }

@@ -22,6 +22,6 @@ public class Film extends BaseEntity{
     private Integer averageScore;
     @OneToMany(mappedBy = "film")
     private Set<Rate> rate;
-    @Enumerated(EnumType.STRING)
-    private Genre genre;
+    @OneToMany(mappedBy = "film")
+    private Set<Genre> genre;
 }

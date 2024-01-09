@@ -2,7 +2,7 @@ package com.app.imdb.model;
 
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +20,6 @@ import java.util.Set;
 public class Director extends BaseEntity{
     private String firstName;
     private String lastName;
-    @OneToMany
-    @JoinColumn
+    @OneToMany(mappedBy = "director",fetch = FetchType.EAGER)
     private Set<Film> film;
 }

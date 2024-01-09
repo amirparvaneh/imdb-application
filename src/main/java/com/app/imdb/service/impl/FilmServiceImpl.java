@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
+
 
 @Service
 @RequiredArgsConstructor
@@ -26,8 +26,9 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public Film addNewFilm(FilmRequestDto filmRequestDto) {
         Film film = FilmMapper.INSTANCE.filmRequestDtoToFilm(filmRequestDto);
-        if (Objects.nonNull(filmRequestDto.getGenre())){
-            validationService.checkGenre(filmRequestDto.getGenre());
-        }
+        GenreType genreType = validationService.checkGenre(filmRequestDto.getGenre());
+        film.setGenreType(genreType);
+        filmRepo.save(film);
+        return film;
     }
 }

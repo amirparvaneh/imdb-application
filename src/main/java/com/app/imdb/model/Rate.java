@@ -1,12 +1,19 @@
 package com.app.imdb.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
 public class Rate extends BaseEntity{
-    private Long score;
+    @Enumerated(EnumType.STRING)
+    private Score score;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
