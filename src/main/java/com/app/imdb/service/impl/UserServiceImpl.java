@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 
@@ -24,8 +23,7 @@ public class UserServiceImpl implements UserService {
     public User addNewUser(UserRequestDto userRequestDto) {
         User user = UserMapper.INSTANCE.userRequestDtoToUser(userRequestDto);
         user.setUserCode(createUniqueCode());
-        User userAdded = userRepo.save(user);
-        return userAdded;
+        return userRepo.save(user);
     }
 
     @Override

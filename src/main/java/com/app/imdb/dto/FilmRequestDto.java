@@ -15,7 +15,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class FilmRequestDto implements Serializable {
     private String name;
-    private String genre;
+    private String genreName;
     private String country;
     private String director;
 }

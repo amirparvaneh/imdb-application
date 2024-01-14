@@ -7,4 +7,5 @@ public class UserRateRequestDto implements Serializable {
 
     private Integer score;
     private Long userCode;
+    private Long filmId;
 }
