@@ -8,4 +8,5 @@ import java.util.List;
 public interface FilmService {
     Film addNewFilm(FilmRequestDto filmRequestDto);
     List<Film> getAllFilm();
+    Film findFilm(Long filmId);
 }
