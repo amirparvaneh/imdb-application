@@ -51,7 +51,7 @@ public class FilmController {
     public ResponseEntity<BaseResponse> rateFilm(@RequestBody UserRateRequestDto userRateRequestDto) {
         RateResponseDto rate = rateService.rateFilm(userRateRequestDto);
         return ResponseEntity.ok(BaseResponse.builder()
-                .message("rated")
+                .message("request have been done.")
                 .result(rate)
                 .build());
     }
@@ -62,6 +62,15 @@ public class FilmController {
         return ResponseEntity.ok(BaseResponse.builder()
                 .message(" films return with name " + name)
                 .result(films)
+                .build());
+    }
+
+    @DeleteMapping(value = "/{filmId}")
+    private ResponseEntity<BaseResponse> deleteFilmById(@PathVariable(value = "filmId") Long filmId) {
+        filmServiceImpl.deleteFilmById(filmId);
+        return ResponseEntity.ok(BaseResponse.builder()
+                .message("film with this id " + filmId + " have been deleted succesfully")
+                .result(null)
                 .build());
     }
 }

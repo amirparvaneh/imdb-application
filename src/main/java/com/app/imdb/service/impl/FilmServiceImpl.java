@@ -57,4 +57,13 @@ public class FilmServiceImpl implements FilmService {
         );
         return filmByTitle.stream().collect(Collectors.toList());
     }
+
+    @Override
+    public void deleteFilmById(Long filmId) {
+        Optional<Film> film = Optional.ofNullable(filmRepo.findById(filmId).orElseThrow(
+                () -> new FilmDomainException("no film founded", ErrorConstants.NOT_FOUND_FILM_BY_ID,
+                        HttpStatus.NOT_FOUND, filmId)
+        ));
+        filmRepo.delete(film.get());
+    }
 }

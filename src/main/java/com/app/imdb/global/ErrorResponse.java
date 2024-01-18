@@ -2,6 +2,7 @@ package com.app.imdb.global;
 
 import com.app.imdb.exception.DomainCategory;
 import com.app.imdb.exception.ErrorConstants;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.http.HttpStatus;
 
@@ -22,7 +23,9 @@ public class ErrorResponse {
     private String errorCode;
     private HttpStatus statusCode;
     private DomainCategory domainCategory;
+    @JsonIgnore
     private final Map<String, Object> errorDetail = new HashMap<>();
+    @JsonIgnore
     private Object[] params;
 
     public ErrorResponse(String message,

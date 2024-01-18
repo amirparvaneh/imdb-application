@@ -10,4 +10,5 @@ public interface FilmService {
     List<Film> getAllFilm();
     Film findFilm(Long filmId);
     List<Film> searchFilmByTitle(String name);
+    void deleteFilmById(Long film);
 }

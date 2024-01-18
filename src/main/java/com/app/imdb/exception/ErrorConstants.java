@@ -11,4 +11,7 @@ public class ErrorConstants {
     //user
     public static String NOT_FOUND_USER_BY_CODE = "User-001";
     public static String NOT_FOUND_USER_BY_ID = "User-002";
+
+    //enum
+    public static String NOT_VALID_ENUM = "Enum-001";
 }

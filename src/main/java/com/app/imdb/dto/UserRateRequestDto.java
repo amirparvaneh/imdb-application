@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Data
 @Builder
 public class UserRateRequestDto implements Serializable {
-    private Integer score;
+    private String score;
     private Long userCode;
     private Long filmId;
 }

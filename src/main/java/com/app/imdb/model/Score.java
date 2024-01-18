@@ -1,5 +1,8 @@
 package com.app.imdb.model;
 
+import lombok.Getter;
+
+@Getter
 public enum Score {
     ONE(1),
     TWO(2),
@@ -11,9 +14,5 @@ public enum Score {
 
     Score(Integer value) {
         this.value = value;
-    }
-
-    private Integer getValue(){
-        return value;
     }
 }
