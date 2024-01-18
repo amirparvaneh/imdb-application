@@ -48,11 +48,20 @@ public class FilmController {
     }
 
     @PostMapping
-    public ResponseEntity<BaseResponse> rateFilm(@RequestBody UserRateRequestDto userRateRequestDto){
+    public ResponseEntity<BaseResponse> rateFilm(@RequestBody UserRateRequestDto userRateRequestDto) {
         RateResponseDto rate = rateService.rateFilm(userRateRequestDto);
         return ResponseEntity.ok(BaseResponse.builder()
-        .message("rated")
-        .result(rate)
-        .build());
+                .message("rated")
+                .result(rate)
+                .build());
+    }
+
+    @GetMapping(value = "/search")
+    public ResponseEntity<BaseResponse> searchFilmByTitle(@RequestParam String name) {
+        List<Film> films = filmServiceImpl.searchFilmByTitle(name);
+        return ResponseEntity.ok(BaseResponse.builder()
+                .message(" films return with name " + name)
+                .result(films)
+                .build());
     }
 }

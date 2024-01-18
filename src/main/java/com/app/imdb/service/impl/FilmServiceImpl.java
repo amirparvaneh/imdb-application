@@ -16,6 +16,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -44,5 +46,15 @@ public class FilmServiceImpl implements FilmService {
         return filmRepo.findById(filmId).orElseThrow(() ->
                 new FilmDomainException("not founded film with this id ", ErrorConstants.NOT_FOUND_FILM_BY_ID,
                         HttpStatus.NOT_FOUND, filmId));
+    }
+
+    @Override
+    public List<Film> searchFilmByTitle(String name) {
+        log.info(" searching in film data with this name : " + name);
+        List<Film> filmByTitle = filmRepo.findFilmByTitle(name).orElseThrow(
+                () -> new FilmDomainException("no film found with given name ",
+                        ErrorConstants.NOT_FOUND_FILM_BY_NAME, HttpStatus.NOT_FOUND)
+        );
+        return filmByTitle.stream().collect(Collectors.toList());
     }
 }

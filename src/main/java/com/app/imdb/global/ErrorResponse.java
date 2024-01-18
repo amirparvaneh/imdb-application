@@ -16,6 +16,8 @@ import java.util.Objects;
 @Getter
 @NoArgsConstructor
 public class ErrorResponse {
+
+    @Setter
     private String message;
     private String errorCode;
     private HttpStatus statusCode;
@@ -48,9 +50,5 @@ public class ErrorResponse {
         for (Object param : params) {
             this.errorDetail.put("request param :", param);
         }
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }

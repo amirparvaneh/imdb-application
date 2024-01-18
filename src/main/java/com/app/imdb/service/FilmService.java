@@ -9,4 +9,5 @@ public interface FilmService {
     Film addNewFilm(FilmRequestDto filmRequestDto);
     List<Film> getAllFilm();
     Film findFilm(Long filmId);
+    List<Film> searchFilmByTitle(String name);
 }

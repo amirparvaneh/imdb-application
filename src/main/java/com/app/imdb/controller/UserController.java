@@ -48,7 +48,4 @@ public class UserController {
                 .result(allUser).build());
     }
 
-    @GetMapping(value = "/search")
-    public ResponseEntity<BaseResponse> searchFilm(@RequestParam String name,@)
-
 }
