@@ -5,6 +5,7 @@ import com.app.imdb.dto.BaseResponse;
 import com.app.imdb.dto.FilmRequestDto;
 import com.app.imdb.dto.UserRateRequestDto;
 import com.app.imdb.dto.rateDto.RateResponseDto;
+import com.app.imdb.model.BaseEntity;
 import com.app.imdb.model.Film;
 import com.app.imdb.model.Rate;
 import com.app.imdb.service.impl.FilmServiceImpl;
@@ -72,5 +73,14 @@ public class FilmController {
                 .message("film with this id " + filmId + " have been deleted succesfully")
                 .result(null)
                 .build());
+    }
+
+    @GetMapping(value = "/{name}")
+    private ResponseEntity<BaseResponse> getFilmByName(@PathVariable(value = "name") String name){
+        List<Film> films = filmServiceImpl.filmByName(name);
+        return ResponseEntity.ok(BaseResponse.builder()
+        .message("result for film with name : " + name)
+        .result(films)
+        .build());
     }
 }

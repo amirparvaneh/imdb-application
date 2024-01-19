@@ -37,10 +37,12 @@ public class RateServiceImpl implements RateService {
                 .score(rateScore)
                 .build();
         rateRepository.save(rate);
+        filmService.averageRateForFilm(rate);
         return RateResponseDto.builder()
                 .filmName(film.getTitle())
                 .userName(user.getFirstName() + "_" + user.getLastName())
                 .score(rateScore)
                 .build();
     }
+
 }

@@ -6,6 +6,8 @@ import com.app.imdb.exception.ErrorConstants;
 import com.app.imdb.exception.FilmDomainException;
 import com.app.imdb.mapper.FilmMapper;
 import com.app.imdb.model.Film;
+import com.app.imdb.model.Rate;
+import com.app.imdb.model.Score;
 import com.app.imdb.repository.FilmRepo;
 import com.app.imdb.service.FilmService;
 import com.app.imdb.service.validation.ValidationService;
@@ -26,7 +28,6 @@ public class FilmServiceImpl implements FilmService {
 
     private static final Logger log = LoggerFactory.getLogger(FilmServiceImpl.class);
     private final FilmRepo filmRepo;
-    private final ValidationService validationService;
 
 
     @Override
@@ -65,5 +66,26 @@ public class FilmServiceImpl implements FilmService {
                         HttpStatus.NOT_FOUND, filmId)
         ));
         filmRepo.delete(film.get());
+    }
+
+    @Override
+    public List<Film> filmByName(String name) {
+        Optional<List<Film>> filmByTitle = filmRepo.findFilmByTitle(name);
+        return filmByTitle.get();
+    }
+
+    @Override
+    public Film averageRateForFilm(Rate rate) {
+        Film film = rate.getFilm();
+        filmRepo.save(computeAverage(film));
+        return film;
+    }
+
+    private Film computeAverage(Film film){
+        Integer numberOfRates = film.getRate().size();
+        int sum = film.getRate().stream().mapToInt(rate -> rate.getScore().getValue()).sum();
+        int average = (numberOfRates > 0 ? sum/numberOfRates : 0);
+        film.setAverageScore(average);
+        return film;
     }
 }
