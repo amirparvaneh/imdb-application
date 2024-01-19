@@ -19,7 +19,7 @@ public class Film extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "director_id")
     private Director director;
-    private Integer averageScore;
+    private Double averageScore;
     @OneToMany(mappedBy = "film")
     private Set<Rate> rate;
     @OneToMany(mappedBy = "film")

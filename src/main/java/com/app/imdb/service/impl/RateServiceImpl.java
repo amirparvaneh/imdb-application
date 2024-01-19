@@ -2,6 +2,7 @@ package com.app.imdb.service.impl;
 
 import com.app.imdb.dto.UserRateRequestDto;
 import com.app.imdb.dto.rateDto.RateResponseDto;
+import com.app.imdb.mapper.RateMapper;
 import com.app.imdb.model.Film;
 import com.app.imdb.model.Rate;
 import com.app.imdb.model.Score;

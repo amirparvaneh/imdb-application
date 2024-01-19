@@ -7,10 +7,8 @@ import com.app.imdb.exception.FilmDomainException;
 import com.app.imdb.mapper.FilmMapper;
 import com.app.imdb.model.Film;
 import com.app.imdb.model.Rate;
-import com.app.imdb.model.Score;
 import com.app.imdb.repository.FilmRepo;
 import com.app.imdb.service.FilmService;
-import com.app.imdb.service.validation.ValidationService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,8 +81,8 @@ public class FilmServiceImpl implements FilmService {
 
     private Film computeAverage(Film film){
         Integer numberOfRates = film.getRate().size();
-        int sum = film.getRate().stream().mapToInt(rate -> rate.getScore().getValue()).sum();
-        int average = (numberOfRates > 0 ? sum/numberOfRates : 0);
+        double sum = film.getRate().stream().mapToInt(rate -> rate.getScore().getValue()).sum();
+        double average = (numberOfRates > 0 ? sum/numberOfRates : 0);
         film.setAverageScore(average);
         return film;
     }
