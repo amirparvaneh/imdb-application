@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 
@@ -24,4 +25,5 @@ public class Film extends BaseEntity{
     private Set<Rate> rate;
     @OneToMany(mappedBy = "film")
     private Set<Genre> genre;
+    private LocalDateTime productionDate;
 }

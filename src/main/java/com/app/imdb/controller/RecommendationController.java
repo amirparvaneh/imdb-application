@@ -2,17 +2,14 @@ package com.app.imdb.controller;
 
 
 import com.app.imdb.dto.BaseResponse;
-import com.app.imdb.dto.recomDto.GenreRecommendationDto;
+import com.app.imdb.dto.recomDto.RecommendationRequestDto;
 import com.app.imdb.dto.recomDto.RecommendationResponseDto;
 import com.app.imdb.service.impl.RecommendationServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "recommendations")
@@ -23,11 +20,18 @@ public class RecommendationController {
     private final RecommendationServiceImpl recommendationService;
 
     @PostMapping("/genre")
-    public ResponseEntity<BaseResponse> recommendationBasedOnGenre(@RequestBody GenreRecommendationDto genreRecommendationDto) {
-        RecommendationResponseDto recommendationResponseDto = recommendationService.recommendBaseGenre(genreRecommendationDto);
+    public ResponseEntity<BaseResponse> recommendationBasedOnGenre(@RequestBody RecommendationRequestDto recommendationRequestDto) {
+        RecommendationResponseDto recommendationResponseDto = recommendationService.recommendBaseGenre(recommendationRequestDto);
         return ResponseEntity.ok(BaseResponse.builder()
                 .message(" new recommendation created ")
                 .result(recommendationResponseDto)
                 .build());
     }
+
+    @PostMapping(value = "/director")
+    public ResponseEntity<BaseResponse> recommendBaseDirector(@RequestBody RecommendationRequestDto recommendationRequestDto){
+
+    }
+
+
 }
