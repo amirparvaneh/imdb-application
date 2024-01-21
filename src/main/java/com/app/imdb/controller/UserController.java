@@ -2,7 +2,7 @@ package com.app.imdb.controller;
 
 import com.app.imdb.ApiVersion;
 import com.app.imdb.dto.BaseResponse;
-import com.app.imdb.dto.UserRequestDto;
+import com.app.imdb.dto.userDto.UserRequestDto;
 import com.app.imdb.model.User;
 import com.app.imdb.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;

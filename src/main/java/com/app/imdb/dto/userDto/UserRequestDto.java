@@ -1,4 +1,4 @@
-package com.app.imdb.dto;
+package com.app.imdb.dto.userDto;
 
 import lombok.Builder;
 import lombok.Data;

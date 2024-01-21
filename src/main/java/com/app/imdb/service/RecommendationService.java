@@ -4,5 +4,5 @@ import com.app.imdb.dto.recomDto.GenreRecommendationDto;
 import com.app.imdb.dto.recomDto.RecommendationResponseDto;
 
 public interface RecommendationService {
-    RecommendationResponseDto RecommendBaseGenre(GenreRecommendationDto genreRecommendationDto);
+    RecommendationResponseDto recommendBaseGenre(GenreRecommendationDto genreRecommendationDto);
 }

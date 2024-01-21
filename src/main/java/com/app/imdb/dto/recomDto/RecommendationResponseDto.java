@@ -7,4 +7,8 @@ import lombok.Data;
 @Builder
 @Data
 public class RecommendationResponseDto {
+    private String filmTitle;
+    private double averageScore;
+    private String directorName;
+
 }

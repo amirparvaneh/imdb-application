@@ -1,6 +1,6 @@
 package com.app.imdb.service;
 
-import com.app.imdb.dto.UserRequestDto;
+import com.app.imdb.dto.userDto.UserRequestDto;
 import com.app.imdb.model.User;
 
 import java.util.List;

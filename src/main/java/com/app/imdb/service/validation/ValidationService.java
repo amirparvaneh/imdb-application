@@ -1,7 +1,7 @@
 package com.app.imdb.service.validation;
 
 
-import com.app.imdb.dto.UserRateRequestDto;
+import com.app.imdb.dto.userDto.UserRateRequestDto;
 import com.app.imdb.exception.ErrorConstants;
 import com.app.imdb.exception.OtherDomainException;
 import com.app.imdb.model.Score;

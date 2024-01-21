@@ -4,7 +4,6 @@ package com.app.imdb.controller;
 import com.app.imdb.dto.BaseResponse;
 import com.app.imdb.dto.recomDto.GenreRecommendationDto;
 import com.app.imdb.dto.recomDto.RecommendationResponseDto;
-import com.app.imdb.service.RecommendationService;
 import com.app.imdb.service.impl.RecommendationServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -25,7 +24,7 @@ public class RecommendationController {
 
     @PostMapping("/genre")
     public ResponseEntity<BaseResponse> recommendationBasedOnGenre(@RequestBody GenreRecommendationDto genreRecommendationDto) {
-        RecommendationResponseDto recommendationResponseDto = recommendationService.RecommendBaseGenre(genreRecommendationDto);
+        RecommendationResponseDto recommendationResponseDto = recommendationService.recommendBaseGenre(genreRecommendationDto);
         return ResponseEntity.ok(BaseResponse.builder()
                 .message(" new recommendation created ")
                 .result(recommendationResponseDto)
