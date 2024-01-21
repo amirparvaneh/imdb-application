@@ -3,6 +3,7 @@ package com.app.imdb.controller;
 import com.app.imdb.ApiVersion;
 import com.app.imdb.dto.BaseResponse;
 import com.app.imdb.dto.userDto.UserRequestDto;
+import com.app.imdb.dto.userDto.UserResponse;
 import com.app.imdb.model.User;
 import com.app.imdb.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -42,7 +43,7 @@ public class UserController {
 
     @GetMapping(value = "/all")
     public ResponseEntity<BaseResponse> getAllUser(){
-        List<User> allUser = userService.getAllUser();
+        List<UserResponse> allUser = userService.getAllUser();
         return ResponseEntity.ok(BaseResponse.builder()
                 .message("size of user" + allUser.size())
                 .result(allUser).build());

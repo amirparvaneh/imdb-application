@@ -1,6 +1,7 @@
 package com.app.imdb.service.impl;
 
 import com.app.imdb.dto.userDto.UserRequestDto;
+import com.app.imdb.dto.userDto.UserResponse;
 import com.app.imdb.exception.ErrorConstants;
 import com.app.imdb.exception.RateDomainException;
 import com.app.imdb.exception.UserDomainException;
@@ -30,9 +31,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllUser() {
-
-        return userRepo.findAll();
+    public List<UserResponse> getAllUser() {
+        List<User> users = userRepo.findAll();
+        return UserMapper.INSTANCE.userToUserResponse(users);
     }
 
     @Override

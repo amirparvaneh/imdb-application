@@ -15,5 +15,6 @@ public interface UserMapper {
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
     User userRequestDtoToUser(UserRequestDto userRequestDto);
-    List<UserResponse> userToUserResponse(User)
+
+    List<UserResponse> userToUserResponse(List<User> user);
 }
