@@ -11,7 +11,19 @@ import org.springframework.stereotype.Service;
 public class RecommendationServiceImpl implements RecommendationService {
 
     @Override
-    public RecommendationResponseDto recommendBaseGenre(RecommendationRequestDto genreRecommendationDto) {
+    public RecommendationResponseDto recommendBaseGenre(RecommendationRequestDto recommendationRequestDto) {
         return null;
     }
+
+    @Override
+    public RecommendationResponseDto recommendBaseDirector(RecommendationRequestDto recommendationRequestDto) {
+        return null;
+    }
+
+    @Override
+    public RecommendationResponseDto recommendBaseRating(RecommendationRequestDto recommendationRequestDto) {
+        return null;
+    }
+
+
 }

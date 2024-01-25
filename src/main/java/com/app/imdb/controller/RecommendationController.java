@@ -30,7 +30,7 @@ public class RecommendationController {
 
     @PostMapping(value = "/director")
     public ResponseEntity<BaseResponse> recommendBaseDirector(@RequestBody RecommendationRequestDto recommendationRequestDto){
-
+        RecommendationResponseDto recommendationResponseDto = recommendationService.recommendBaseDirector(recommendationRequestDto);
     }
 
 
