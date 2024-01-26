@@ -31,6 +31,19 @@ public class RecommendationController {
     @PostMapping(value = "/director")
     public ResponseEntity<BaseResponse> recommendBaseDirector(@RequestBody RecommendationRequestDto recommendationRequestDto){
         RecommendationResponseDto recommendationResponseDto = recommendationService.recommendBaseDirector(recommendationRequestDto);
+        return ResponseEntity.ok(BaseResponse.builder()
+        .message(" new recommendation base on director")
+        .result(recommendationResponseDto)
+        .build());
+    }
+
+    @PostMapping(value = "/rating")
+    public ResponseEntity<BaseResponse> recommendBaseRating(@RequestBody RecommendationRequestDto recommendationRequestDto){
+        RecommendationResponseDto recommendationResponseDto = recommendationService.recommendBaseDirector(recommendationRequestDto);
+        return ResponseEntity.ok(BaseResponse.builder()
+                .message(" new recommendation base on rating")
+                .result(recommendationResponseDto)
+        .build());
     }
 
 
