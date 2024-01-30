@@ -18,7 +18,7 @@ public class Recommendation extends BaseEntity{
     private String filmTitle;
     private Integer averageScore;
     @ManyToOne
-    @JoinColumn("user_id")
+    @JoinColumn(name = "user_id")
     private User user;
     @OneToOne
     private Film film;

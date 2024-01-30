@@ -23,7 +23,10 @@ public class Film extends BaseEntity{
     private Double averageScore;
     @OneToMany(mappedBy = "film")
     private Set<Rate> rate;
-    @OneToMany(mappedBy = "film")
-    private Set<Genre> genre;
+    @ManyToMany
+    @JoinTable(name = "film-genre",
+    joinColumns = @JoinColumn(name = "film-id"),
+    inverseJoinColumns = @JoinColumn(name = "genre-id"))
+    private Set<Genre> genres;
     private LocalDateTime productionDate;
 }

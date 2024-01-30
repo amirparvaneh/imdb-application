@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserResponse> getAllUser() {
         List<User> users = userRepo.findAll();
-        return UserMapper.INSTANCE.userToUserResponse(users);
+        return null;
     }
 
     @Override

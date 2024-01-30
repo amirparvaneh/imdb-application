@@ -46,7 +46,7 @@ public class FilmController {
                 .build());
     }
 
-    @PostMapping
+    @PostMapping(value = "/rate")
     public ResponseEntity<BaseResponse> rateFilm(@RequestBody UserRateRequestDto userRateRequestDto) {
         RateResponseDto rate = rateService.rateFilm(userRateRequestDto);
         return ResponseEntity.ok(BaseResponse.builder()
