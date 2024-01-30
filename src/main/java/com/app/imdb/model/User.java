@@ -18,4 +18,6 @@ public class User extends BaseEntity{
     private String firstName;
     private String lastName;
     private Long userCode;
+    private String email;
+    private String phoneNumber;
 }

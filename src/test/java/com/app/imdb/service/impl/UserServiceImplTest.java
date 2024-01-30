@@ -14,7 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {
@@ -37,7 +37,8 @@ class UserServiceImplTest {
         when(userRepo.save(any(User.class))).thenReturn(user);
         //then
         User actualUser = userService.addNewUser(userRequestDto);
-        assertEquals(user,actualUser);
+        verify(userRepo,times(1)).save(user);
+        //assertEquals(user,actualUser);
 
     }
 

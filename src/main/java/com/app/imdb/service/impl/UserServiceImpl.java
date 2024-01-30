@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
         Long resultCode = 0l;
         do {
             resultCode = new Random().nextLong(9000000) + 1000000;
-        } while (!checkUserByUserCode(resultCode));
+        } while (checkUserByUserCode(resultCode));
         return resultCode;
     }
 
