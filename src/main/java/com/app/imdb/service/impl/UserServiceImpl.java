@@ -27,7 +27,8 @@ public class UserServiceImpl implements UserService {
     public User addNewUser(UserRequestDto userRequestDto) {
         User user = UserMapper.INSTANCE.userRequestDtoToUser(userRequestDto);
         user.setUserCode(createUniqueCode());
-        return userRepo.save(user);
+        userRepo.save(user);
+        return user;
     }
 
     @Override

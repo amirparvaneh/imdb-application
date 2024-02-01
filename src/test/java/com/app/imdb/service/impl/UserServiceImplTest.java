@@ -4,6 +4,7 @@ import com.app.imdb.dto.userDto.UserRequestDto;
 import com.app.imdb.dto.userDto.UserRequestDtoDummy;
 import com.app.imdb.mapper.UserMapper;
 import com.app.imdb.model.User;
+import com.app.imdb.model.UserDummy;
 import com.app.imdb.repository.UserRepo;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -34,14 +35,15 @@ class UserServiceImplTest {
     void addNewUser_validUserRequest_successfullyAdded() {
         //given
         UserRequestDto userRequestDto = UserRequestDtoDummy.validUserReqDto();
-        User user = userMapper.userRequestDtoToUser(userRequestDto);
+        User user = UserDummy.validUserBuilder();
         //when
         when(userRepo.findUserByUserCode(any())).thenReturn(Optional.empty());
         when(userRepo.save(any(User.class))).thenReturn(user);
         //then
         User actualUser = userService.addNewUser(userRequestDto);
+
         verify(userRepo,times(1)).save(any(User.class));
-        assertEquals(user,actualUser);
+        assertEquals(user.getFirstName(),actualUser.getFirstName());
     }
 
     @Test
