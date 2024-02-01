@@ -1,8 +1,17 @@
 package com.app.imdb.dto.recomDto;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class RecommendationRequestDto {
-    private String genre;
-    private String directorName;
-    private double rate;
+    private Long userCode;
+    private String filmTitle;
+    private String recommendationBase;
 }

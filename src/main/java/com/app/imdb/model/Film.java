@@ -16,7 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Film extends BaseEntity{
-    private String title;
+    private String filmTitle;
     @ManyToOne
     @JoinColumn(name = "director_id")
     private Director director;

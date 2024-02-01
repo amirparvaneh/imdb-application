@@ -19,32 +19,13 @@ public class RecommendationController {
     private static final Logger log = LoggerFactory.getLogger(RecommendationController.class);
     private final RecommendationServiceImpl recommendationService;
 
-    @PostMapping("/genre")
+    @PostMapping("/recommendBase")
     public ResponseEntity<BaseResponse> recommendationBasedOnGenre(@RequestBody RecommendationRequestDto recommendationRequestDto) {
-        RecommendationResponseDto recommendationResponseDto = recommendationService.recommendBaseGenre(recommendationRequestDto);
+        RecommendationResponseDto recommendationResponseDto = recommendationService.recommend(recommendationRequestDto);
         return ResponseEntity.ok(BaseResponse.builder()
                 .message(" new recommendation created ")
                 .result(recommendationResponseDto)
                 .build());
     }
-
-    @PostMapping(value = "/director")
-    public ResponseEntity<BaseResponse> recommendBaseDirector(@RequestBody RecommendationRequestDto recommendationRequestDto){
-        RecommendationResponseDto recommendationResponseDto = recommendationService.recommendBaseDirector(recommendationRequestDto);
-        return ResponseEntity.ok(BaseResponse.builder()
-        .message(" new recommendation base on director")
-        .result(recommendationResponseDto)
-        .build());
-    }
-
-    @PostMapping(value = "/rating")
-    public ResponseEntity<BaseResponse> recommendBaseRating(@RequestBody RecommendationRequestDto recommendationRequestDto){
-        RecommendationResponseDto recommendationResponseDto = recommendationService.recommendBaseDirector(recommendationRequestDto);
-        return ResponseEntity.ok(BaseResponse.builder()
-                .message(" new recommendation base on rating")
-                .result(recommendationResponseDto)
-        .build());
-    }
-
 
 }

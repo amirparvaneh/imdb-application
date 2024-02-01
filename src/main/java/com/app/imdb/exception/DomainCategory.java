@@ -3,6 +3,7 @@ package com.app.imdb.exception;
 public enum DomainCategory {
     FILM,
     USER,
-    Rate,
+    RATE,
+    RECOMMENDATION,
     OTHER
 }
