@@ -36,7 +36,7 @@ public class RecommendationFactory {
         return strategyMap;
     }
 
-    public void recommendationProcess(RecommendationBase recommendationBase, Recommendation recommendation){
+    public void recommendationProcess(RecommendationBase recommendationBase, RecommendationRequestDto recommendation){
         RecommendationStrategy strategy = validators.get(recommendationBase);
         if (Objects.nonNull(strategy)){
             strategy.checkBaseRecommendation(recommendation);

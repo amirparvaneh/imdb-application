@@ -1,7 +1,8 @@
 package com.app.imdb.service.recommendationStrategy;
 
-import com.app.imdb.model.Recommendation;
+import com.app.imdb.dto.recomDto.RecommendationRequestDto;
+
 
 public interface RecommendationStrategy {
-    void checkBaseRecommendation(Recommendation recommendation);
+    void checkBaseRecommendation(RecommendationRequestDto recommendation);
 }

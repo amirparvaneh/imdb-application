@@ -28,13 +28,9 @@ public class RecommendationServiceImpl implements RecommendationService {
     public RecommendationResponseDto recommend(RecommendationRequestDto recommendationRequestDto) {
         RecommendationBase recommendationBase =
                 validationService.getRecommendationBase(recommendationRequestDto.getRecommendationBase());
-        User user = validationService.validateUser(recommendationRequestDto.getUserCode());
-        Film film = validationService.validateFilmTitle(recommendationRequestDto.getFilmTitle());
-        Recommendation.builder()
-                .film(film)
-                .user(user)
-                .build();
-        recommendationFactory.recommendationProcess(recommendationBase,);
+        validationService.validateUser(recommendationRequestDto.getUserCode());
+        validationService.validateFilmTitle(recommendationRequestDto.getFilmTitle());
+        recommendationFactory.recommendationProcess(recommendationBase,recommendationRequestDto);
     }
 
 
