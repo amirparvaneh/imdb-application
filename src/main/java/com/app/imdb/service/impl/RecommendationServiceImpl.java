@@ -31,6 +31,7 @@ public class RecommendationServiceImpl implements RecommendationService {
         validationService.validateUser(recommendationRequestDto.getUserCode());
         validationService.validateFilmTitle(recommendationRequestDto.getFilmTitle());
         recommendationFactory.recommendationProcess(recommendationBase,recommendationRequestDto);
+
     }
 
 
